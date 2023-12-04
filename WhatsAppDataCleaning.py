@@ -30,6 +30,7 @@ def select_and_read_file():
     except FileNotFoundError:
         print("You need to select a file")
         print("Terminated")
+        exit()
 
 # Create the main application window
 root = tk.Tk()
