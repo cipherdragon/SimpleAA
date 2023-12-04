@@ -24,7 +24,8 @@ def select_and_read_file():
         with open(file_path2, 'w', encoding='utf-8') as file:
             for item in not_Deelaka_texts_List:
                 file.write(f"{item}\n")
-                print("Data Cleaned")
+            print("Data Cleaned")
+            exit()
 
     except FileNotFoundError:
         print("You need to select a file")
