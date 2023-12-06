@@ -1,0 +1,14 @@
+{
+	"author": "Linus Torvalds",
+	"link": "https://lkml.org/lkml/2023/9/29/752",
+	"text": [
+		{"paragraph": "Yes, we'd make 'struct inode' smaller if we pack the times into one 64-bit entity, but if btrfs responds by adding mtime fields to \"struct btrfs_inode\", we lost the size advantage and only made things worse."},
+		{"paragraph": "And if ->getattr() then reads those fields without locking (and we definitely don't want locking in that path), then we lost the atomicity thing too."},
+		{"paragraph": "So no. A \"but the filesystem can maintain finer granularity\" model is not acceptable, I think."},
+		{"paragraph": "If we do require nanoseconds for compatibility, what we could possibly do is say \"we guarantee nanosecond values for *legacy* dates\", and say that future dates use 100ns resolution. We'd define \"legacy dates\" to be the traditional 32-bit signed time_t."},
+		{"paragraph": "Then, because only 30 bits are needed for nanosecond resolution, we use the top two bits of that ns field as flags. '00' means that legacy format, and '01' would mean \"we're not doing nanosecond resolution, we're doing 64ns resolution, and the low 6 bits of the ns field are actually bits 32-37 of the seconds field\"."},
+		{"paragraph": "That still gives us some extensibility (unless the multi-grain code still wants to use the other top bit), and it gives us 40 bits of seconds, which is quite a lot."},
+		{"paragraph": "And all the conversion functions will be simple bit field manipulations, so there are no expensive ops here."},
+		{"paragraph": "Anyway, I agree with the \"let's introduce the accessor functions first, we can do the 'pack into one word' decisions later\"."}
+	]
+}

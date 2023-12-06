@@ -1,0 +1,16 @@
+{
+	"author": "Linus Torvalds",
+	"link": "https://lkml.org/lkml/2020/7/2/1133",
+	"text": [
+		{"paragraph": "Ugh, the above is bad anyway."},
+		{"paragraph": "It doesn't use _ASM_EXTABLE_UA, so it won't warn about the noncanonical cases."},
+		{"paragraph": "Yeah, it would need to be turned into a \"jump out\" instead of just \"jump over\"."},
+		{"paragraph": "Which it damn well should do anyway."},
+		{"paragraph": "That code should be taken behind a shed and shot. It does so many things wrong that it's not even funny. It shouldn't do stac/clac on its own."},
+		{"paragraph": "At least it could use the \"user_insn()\" helper, which does it inside the asm itself, has the right might_fault() marking (but not the address check), and which can be trivially changed to have the fixup jump be to after the \"ASM_CLAC\"."},
+		{"paragraph": "Or maybe it could use \"asm goto\" for that exception handling, because it doesn't have any outputs (except for the error, which is exactly what the goto case is for)."},
+		{"paragraph": "But no, at no point should we \"rely on objtool not noticing\". In fact, I think Josh's patch would have made objtool notice, and it would have been a good thing, because that code is unbelievably ugly and needs to be cleaned up anyway."},
+		{"paragraph": "Am I surprised that we have hacky stuff in our magic FPU/MMX/AVX state handling? No I'm not."},
+		{"paragraph": "I'm getting to the point where I'm thinking maybe all the horrendous mis-steps from Intel over the last years are a good thing, and ARM will take over, and we won't have to deal with this a decade from now."}
+	]
+}

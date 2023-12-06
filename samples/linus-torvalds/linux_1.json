@@ -1,0 +1,19 @@
+{
+	"author": "Linus Torvalds",
+	"link": "https://lkml.org/lkml/2022/9/19/1105",
+	"text": [
+		{"paragraph": "And the reality is that there are no absolute guarantees.  Ever. The \"Rust is safe\" is not some kind of absolute guarantee of code safety. Never has been. Anybody who believes that should probably re-take their kindergarten year, and stop believing in the Easter bunny and Santa Claus."},
+		{"paragraph": "Even \"safe\" rust code in user space will do things like panic when things go wrong (overflows, allocation failures, etc). If you don't realize that that is NOT some kind of true safety, I don't know what to say."},
+		{"paragraph": "Not completing the operation at all, is *not* really any better than getting the wrong answer, it's only more debuggable."},
+		{"paragraph": "In the kernel, \"panic and stop\" is not an option (it's actively worse than even the wrong answer, since it's really not debugable), so the kernel version of \"panic\" is \"WARN_ON_ONCE()\" and continue with the wrong answer."},
+		{"paragraph": "So this is something that I really *need* the Rust people to understand. That whole reality of \"safe\" not being some absolute thing, and the reality that the kernel side *requires* slightly different rules than user space traditionally does."},
+		{"paragraph": "You had a bug. Shit happens. We have a lot of debugging tools that will give you a *HUGE* warning when said shit happens, including sending automated reports to the distro maker. And then you fix the bug."},
+		{"paragraph": "Think of that \"debugging tools give a huge warning\" as being the equivalent of std::panic in standard rust. Yes, the kernel will continue (unless you have panic-on-warn set), because the kernel *MUST* continue in order for that \"report to upstream\" to have a chance of happening."},
+		{"paragraph": "So it's technically a very different implementation from std:panic, but you should basically see it as exactly that: a *technical* difference, not a conceptual one. The rules for how the kernel deals with bugs is just different, because we don't have core-files and debuggers in the general case."},
+		{"paragraph": "(And yes, you can have a kernel debugger, and you can just have the WARN_ON_ONCE trigger the debugger, but think of all those billions of devices that are in normal users hands)."},
+		{"paragraph": "And yes, in certain configurations, even those warnings will be turned off because the state tracking isn't done. Again, that's just reality. You don't need to use those configurations yourself if you don't like them, but that does *NOT* mean that you get to say \"nobody else gets to use those configurations either\"."},
+		{"paragraph": "Deal with it."},
+		{"paragraph": "Or, you know, if you can't deal with the rules that the kernel requires, then just don't do kernel programming."},
+		{"paragraph": "Because in the end it really is that simple.  I really need you to understand that Rust in the kernel is dependent on *kernel* rules. Not some other random rules that exist elsewhere."}
+	]
+}

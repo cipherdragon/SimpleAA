@@ -1,0 +1,11 @@
+{
+	"author": "Linus Torvalds",
+	"link": "https://lkml.org/lkml/2013/2/21/228",
+	"text": [
+		{"paragraph": "Guys, this is not a dick-sucking contest."},
+		{"paragraph": "If you want to parse PE binaries, go right ahead."},
+		{"paragraph": "If Red Hat wants to deep-throat Microsoft, that's *your* issue.  That has nothing what-so-ever to do with the kernel I maintain. It's trivial for you guys to have a signing machine that parses the PE binary, verifies the signatures, and signs the resulting keys with your own key. You already wrote the code, for chissake, it's in that f*cking pull request."},
+		{"paragraph": "Why should *I* care? Why should the kernel care about some idiotic \"we only sign PE binaries\" stupidity? We support X.509, which is the standard for signing."},
+		{"paragraph": "Do this in user land on a trusted machine. There is zero excuse for doing it in the kernel."}
+	]
+}
