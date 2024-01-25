@@ -1,0 +1,27 @@
+Input likely written romanized sinhala and english.Input format: labelled as INPUT and wrapped in triple quotes.
+INPUT: """input sentence"""
+
+break input to words,label them as sinhala,english,numeric or unknown.
+
+Output CSV: word, is_english, is_sinhala, is_numeric_value, is_unknown
+
+for binary,true 1,false 0. No punctuation in output.
+
+Examples:
+INPUT: """At 9.15?"""
+At, 1, 0, 0, 0
+9.15, 0, 0, 1, 0
+
+INPUT: """sfaewfk"""
+sfaewfk, 0, 0, 0, 1
+
+INPUT: """biriyani ekak oi?"""
+biriyani, 0, 0, 0, 1
+ekak, 0, 1, 0, 0
+oi, 0, 1, 0, 0
+
+INPUT: """me mama, it's me!"""
+me, 0, 1, 0, 0
+mama, 0, 1, 0, 0
+it's, 1, 0, 0, 0
+me, 1, 0, 0, 0

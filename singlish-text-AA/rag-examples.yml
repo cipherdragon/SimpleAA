@@ -1,0 +1,211 @@
+- sentence: Let's start at 9.15
+  words: 
+    - word: Let's
+      lang: en
+    - word: start
+      lang: en
+    - word: at
+      lang: en
+    - word: 9.15
+      lang: value
+
+- sentence: Ela I'll come in 5 mins
+  words: 
+    - word: Ela
+      lang: si
+    - word: I'll
+      lang: en
+    - word: come
+      lang: en
+    - word: in
+      lang: en
+    - word: 5
+      lang: value
+    - word: mins
+      lang: en
+
+- sentence: biriyani ekak aran denna
+  words: 
+    - word: biriyani
+      lang: unknown
+    - word: ekak
+      lang: si
+    - word: aran
+      lang: si
+    - word: denna
+      lang: si
+
+- sentence: Shall we start?
+  words: 
+    - word: Shall
+      lang: en
+    - word: we
+      lang: en
+    - word: start
+      lang: en
+
+- sentence: Thankiuuu bn
+  words: 
+    - word: Thankiuuu
+      lang: en
+    - word: bn
+      lang: si
+
+- sentence: Ammor utto
+  words: 
+    - word: Ammor
+      lang: si
+    - word: utto
+      lang: si
+
+- sentence: Has he seen this message?
+  words: 
+    - word: Has
+      lang: en
+    - word: he
+      lang: en
+    - word: seen
+      lang: en
+    - word: this
+      lang: en
+    - word: message
+      lang: en
+
+- sentence: harida?
+  words: 
+    - word: harida
+      lang: si
+
+- sentence: eka thama cant find
+  words: 
+    - word: eka
+      lang: si
+    - word: thama
+      lang: si
+    - word: cant
+      lang: en
+    - word: find
+      lang: en
+      
+- sentence: mama football Gahanna giya neh bn
+  words: 
+    - word: mama
+      lang: si
+    - word: football
+      lang: en
+    - word: Gahanna
+      lang: si
+    - word: giya
+      lang: si
+    - word: neh
+      lang: si
+    - word: bn
+      lang: si
+
+- sentence: persistent daala
+  words: 
+    - word: persistent
+      lang: en
+    - word: daala
+      lang: si
+
+- sentence: so sweeeeetttt
+  words: 
+    - word: so
+      lang: en
+    - word: sweeeeetttt
+      lang: en
+
+- sentence: Yes no witharak kiyapn
+  words: 
+    - word: Yes
+      lang: en
+    - word: no
+      lang: en
+    - word: witharak
+      lang: si
+    - word: kiyapn
+      lang: si
+
+- sentence: HNB giye na neh
+  words: 
+    - word: HNB
+      lang: unknown
+    - word: giye
+      lang: si
+    - word: na
+      lang: si
+    - word: neh
+      lang: si
+
+- sentence: meh bossa lunch don't bring ah
+  words: 
+    - word: meh
+      lang: si
+    - word: bossa
+      lang: si
+    - word: lunch
+      lang: en
+    - word: don't
+      lang: en
+    - word: bring
+      lang: en
+    - word: ah
+      lang: en
+
+- sentence: 5.30 karamuda?
+  words: 
+    - word: 5.30
+      lang: value
+    - word: karamuda?
+      lang: si
+
+- sentence: all free lu
+  words: 
+    - word: all
+      lang: en
+    - word: free
+      lang: en
+    - word: lu
+      lang: si
+
+- sentence: Ur in campus?
+  words: 
+    - word: Ur
+      lang: en
+    - word: in
+      lang: en
+    - word: campus
+      lang: en
+      
+- sentence: :)
+  words: 
+    - word: :)
+      lang: unknown
+
+- sentence: Display Eka nam kohomath Gaana wadi...
+  words: 
+    - word: Display
+      lang: en
+    - word: Eka
+      lang: si
+    - word: nam
+      lang: si
+    - word: kohomath
+      lang: si
+    - word: Gaana
+      lang: si
+    - word: wadi
+      lang: si
+
+- sentence: Mama conpuse wela inne
+  words: 
+    - word: Mama
+      lang: si
+    - word: conpuse
+      lang: en
+    - word: wela
+      lang: si
+    - word: inne
+      lang: si
+
