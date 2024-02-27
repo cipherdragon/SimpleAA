@@ -2,6 +2,7 @@ import re
 import tkinter as tk
 from tkinter import filedialog
 
+
 def select_and_read_file():
     try:
         not_Deelaka_texts_List = []
