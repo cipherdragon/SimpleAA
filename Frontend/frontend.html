@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Authorship Attribution ML Model</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Authorship Attribution</h1>
+    <div class="input-section">
+      <label for="anonymousFile">Upload Anonymous Text File:</label>
+      <input type="file" id="anonymousFile">
+      <label for="suspectFile">Upload Suspect Author Text File:</label>
+      <input type="file" id="suspectFile">
+      <label for="language">Select Input Language:</label>
+      <select id="language">
+        <option value="english">English</option>
+        <option value="sinhala">Romanized Sinhala</option>
+      </select>
+      <button onclick="evaluateSimilarity()">Evaluate Similarity</button>
+    </div>
+    <div class="output-section">
+      <label for="similarityScore">Similarity Score:</label>
+      <p id="similarityScore">-</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
