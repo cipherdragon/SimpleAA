@@ -202,12 +202,18 @@ def get_aligment_mismatch(text):
         if len(aligned[0]) == 0:
             continue
         
-        aligment_disimilarity = len([i for i in aligned[1] if i == '-']) / len(aligned[0])
+        try:
+            aligment_disimilarity = len([i for i in aligned[1] if i == '-']) / len(aligned[0])
+        except ZeroDivisionError:
+            aligment_disimilarity = 1
 
         if aligment_disimilarity > 0.4:
             alignment_misses.append(aligment_disimilarity)
         
-    return sum(alignment_misses) / len(alignment_misses)
+    try:
+        return sum(alignment_misses) / len(alignment_misses)
+    except ZeroDivisionError:
+        return 0
 
 def extract_features(text1, text2):
     inputs = [text1, text2]
