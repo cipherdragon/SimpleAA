@@ -1,5 +1,6 @@
 from flask import Flask, request
 import singlish_similarity
+import english_similarity
 import time
 import redis
 from flask_cors import CORS
@@ -9,12 +10,11 @@ CORS(app)
 
 redis_con = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
-@app.route('/api/en/train', methods=['POST'])
-def hello_world():
-    return 'Hello, World!'
+@app.route('/api/<lang>', methods=['POST'])
+def post(lang):
+    if (lang != 'en' and lang != 'si'):
+        return { 'error': 'Invalid language' }, 400
 
-@app.route('/api/si', methods=['POST'])
-def singlish_post():
     text_1 = request.json['text_1']
     text_2 = request.json['text_2']
 
@@ -27,11 +27,18 @@ def singlish_post():
 
     redis_con.set(request_id, 'pending')
 
-    singlish_similarity.get_similarity(request_id, text_1, text_2)
+    if lang == 'si':
+        singlish_similarity.get_similarity(request_id, text_1, text_2)
+    else:
+        english_similarity.get_similarity(request_id, text_1, text_2)
+
     return { 'id': timestamp}
 
-@app.route('/api/si/<id>', methods=['GET'])
-def singlish_get(id):
+@app.route('/api/<lang>/<id>', methods=['GET'])
+def get(lang, id):
+    if (lang != 'en' and lang != 'si'):
+        return { 'error': 'Invalid language' }, 400
+
     client_ip = request.remote_addr
     doc_id = id + '_' + client_ip
     result = redis_con.get(doc_id)
