@@ -2,8 +2,8 @@ import awaitable from "./await_util";
 
 const BASE_URL = 'http://localhost:5000';
 
-export function getSinglishSimilarity(text_1: string, text_2: string) {
-    const endpoint = `${BASE_URL}/api/si`;
+export function getSimilarity(lang: string, text_1: string, text_2: string) {
+    const endpoint = `${BASE_URL}/api/${lang}`;
     const fetch_conf = {
         method: 'POST',
         headers: {

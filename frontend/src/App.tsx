@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { getSinglishSimilarity } from "./apiHandler";
+import { getSimilarity } from "./apiHandler";
 
 function App() {
 	const [similarityScore, setSimilarityScore] = useState<string>("N/A");
@@ -37,15 +37,13 @@ function App() {
 			return alert('Error reading file');
 		}
 
-		if (lang == "si") {
-			setSimilarityScore("Calculating...");
-			getSinglishSimilarity(text1, text2)
-				.then(similarity => setSimilarityScore(`${similarity}`))
-				.catch(err => {
-					setSimilarityScore("Failed to calculate");
-					console.log(err);
-				});
-		}
+		setSimilarityScore("Calculating...");
+		getSimilarity(lang, text1, text2)
+			.then(similarity => setSimilarityScore(`${similarity}`))
+			.catch(err => {
+				setSimilarityScore("Failed to calculate");
+				console.log(err);
+			});
 	};
 
 	return (
@@ -81,8 +79,8 @@ function App() {
 					<span className="">
 						Text similarity score : 
 					</span> 
-					<span className={similarityScoreColor === "slate" ? "text-slate-800" : (similarityScoreColor === "red" ? "text-red-600" : "text-green-600")}>
-						{similarityScore}
+					<span className={`text-center ${similarityScoreColor === "slate" ? "text-slate-800" : (similarityScoreColor === "red" ? "text-red-600" : "text-green-600")}`}>
+						{isNaN(+similarityScore) ? similarityScore : `${Math.round(+similarityScore * 100)}%`}
 					</span>
 				</div>
 			</div>
