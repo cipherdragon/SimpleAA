@@ -14,9 +14,10 @@ from keras.models import load_model
 import openai
 import pandas as pd
 
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('stopwords')
+# NLTK packages are already downloaded. Commenting to optimize in docker.
+# nltk.download('punkt')
+# nltk.download('averaged_perceptron_tagger')
+# nltk.download('stopwords')
 
 lstm_tokenizer_pickle = open("./models/lstm_tokenizer.pickle", "rb")
 tokenizer_model = pickle.load(lstm_tokenizer_pickle)

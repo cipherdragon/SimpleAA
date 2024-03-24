@@ -1,6 +1,6 @@
 import awaitable from "./await_util";
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = '';
 
 export function getSimilarity(lang: string, text_1: string, text_2: string) {
     const endpoint = `${BASE_URL}/api/${lang}`;
